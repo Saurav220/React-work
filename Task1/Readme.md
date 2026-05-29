@@ -1,48 +1,162 @@
-🎫 New Task
-NC-1001: Build a Reusable Status Badge Component
-Assigned by: Priya Sharma (Senior React Developer) Priority: Low Difficulty: ⭐ Level 1 — Beginner Estimated Time: 1–2 hours
+# 🎫 New Task
 
-📖 Business Context
-In NovaDash, every workflow task has a status — things like Pending, In Progress, Completed, Failed, On Hold. Right now, we show these as plain text everywhere. The product team wants us to replace plain text statuses with styled badge components so users can quickly scan task lists and identify statuses visually.
+## NC-1001: Build a Reusable Status Badge Component
 
-This badge will be used across at least 4 different pages, so it must be reusable.
+| Field              | Value                                 |
+| ------------------ | ------------------------------------- |
+| **Assigned By**    | Priya Sharma (Senior React Developer) |
+| **Priority**       | Low                                   |
+| **Difficulty**     | ⭐ Level 1 — Beginner                  |
+| **Estimated Time** | 1–2 Hours                             |
 
-📋 Requirements
-Create a functional React component called StatusBadge.
-It should accept a status prop (string) with these possible values:
-"pending" → Yellow/amber background
-"in-progress" → Blue background
-"completed" → Green background
-"failed" → Red background
-"on-hold" → Gray background
-The badge should display the status text in a formatted, human-readable way (e.g., "in-progress" → "In Progress").
-The component should render as a small, rounded pill/chip (inline element).
-Style it using plain CSS (a separate .css file). No inline styles.
-If an unknown status is passed, it should render a neutral/default badge (don't crash).
-Create a small demo page (App.jsx or similar) that renders all 5 status badges so we can visually verify them.
-✅ Acceptance Criteria
-StatusBadge is a functional component in its own file.
-Accepts a status prop and renders the correct color + label.
-Each status has a visually distinct color.
-Unknown statuses render gracefully (no crash, shows a default style).
-Styles are in a separate CSS file, not inline.
-A demo page renders all badges for visual verification.
-Code is clean, readable, and follows good naming conventions.
-🧭 Mentor Notes
-From Priya:
+---
 
-"Hey Saurav, a few pointers for your first ticket:
+## 📖 Business Context
 
-Think about how you'll map statuses to colors. There are several patterns — pick one and be ready to explain why.
-Think about what happens if someone passes status="banana". Your component shouldn't blow up.
-Don't over-engineer it. It's a badge. But do make it clean — I'll be reviewing your code as if it's going to production.
-Naming matters. File names, class names, variable names — treat them like they'll be read by 10 other engineers.
-Good luck. Ping me if you're stuck, but try to figure it out first." 💬
+NovaDash displays the status of workflow tasks throughout the application. Common statuses include:
 
-📈 Developer Progress Dashboard
-Metric Value
-Current Level Level 1 — Beginner Developer
-Overall Rating Not yet evaluated
-Tasks Completed 0 / 1 assigned
-Skills Unlocked None yet
-Next Milestone Complete first task → unlock Level 1 skill badges
+* Pending
+* In Progress
+* Completed
+* Failed
+* On Hold
+
+Currently, these statuses are displayed as plain text, making it difficult for users to quickly scan task lists and identify task states.
+
+To improve usability and visual consistency, the Product Team has requested a reusable **Status Badge** component that visually represents task statuses using color-coded badges.
+
+Since task statuses appear across multiple areas of the application, this component must be reusable and easy to maintain.
+
+---
+
+## 🎯 Objective
+
+Create a reusable React component named **`StatusBadge`** that displays task statuses as styled badges.
+
+---
+
+## 📋 Requirements
+
+### Component
+
+Create a functional React component called **`StatusBadge`**.
+
+### Props
+
+The component should accept a single prop:
+
+```jsx
+status: string
+```
+
+Supported status values:
+
+| Status Value    | Badge Color    |
+| --------------- | -------------- |
+| `"pending"`     | Yellow / Amber |
+| `"in-progress"` | Blue           |
+| `"completed"`   | Green          |
+| `"failed"`      | Red            |
+| `"on-hold"`     | Gray           |
+
+### Display Behavior
+
+* Convert status values into human-readable labels.
+* Examples:
+
+  * `"pending"` → `Pending`
+  * `"in-progress"` → `In Progress`
+  * `"on-hold"` → `On Hold`
+
+### Styling
+
+* Render the badge as a compact pill/chip.
+* Use a separate CSS file for styling.
+* Do **not** use inline styles.
+* Ensure each status has a visually distinct appearance.
+
+### Error Handling
+
+The component must gracefully handle unexpected values.
+
+Example:
+
+```jsx
+<StatusBadge status="banana" />
+```
+
+Expected behavior:
+
+* Application should not crash.
+* Render a neutral/default badge style.
+* Display a readable label.
+
+### Demo Page
+
+Create a simple demo page (`App.jsx` or equivalent) that renders:
+
+* Pending
+* In Progress
+* Completed
+* Failed
+* On Hold
+
+This page will be used for visual verification during review.
+
+---
+
+## ✅ Acceptance Criteria
+
+* [ ] `StatusBadge` is implemented as a reusable functional component.
+* [ ] Component resides in its own file.
+* [ ] Accepts a `status` prop.
+* [ ] Displays the correct label for each status.
+* [ ] Applies the correct color styling for each status.
+* [ ] Unknown statuses render gracefully with a default appearance.
+* [ ] All styles are stored in a separate CSS file.
+* [ ] A demo page renders all supported badge variations.
+* [ ] Code is clean, readable, and follows consistent naming conventions.
+
+---
+
+## 🧭 Mentor Notes
+
+**From Priya**
+
+> Hey Saurav,
+>
+> A few things to keep in mind while working on this ticket:
+>
+> * Think carefully about how you'll map status values to colors and labels.
+> * Consider what should happen when an unsupported status is passed.
+> * Avoid over-engineering the solution. This is a small component, but it should still be production-quality.
+> * Naming matters. File names, variables, functions, and CSS classes should all be clear and intentional.
+>
+> Try solving it independently first. If you get stuck, reach out and we'll work through it together.
+>
+> Good luck! 🚀
+
+---
+
+## 📈 Developer Progress Dashboard
+
+| Metric          | Value                                                    |
+| --------------- | -------------------------------------------------------- |
+| Current Level   | Level 1 — Beginner Developer                             |
+| Overall Rating  | Not Yet Evaluated                                        |
+| Tasks Completed | 0 / 1                                                    |
+| Skills Unlocked | None                                                     |
+| Next Milestone  | Complete your first task and unlock Level 1 skill badges |
+
+---
+
+### 💡 Suggested Approach
+
+1. Create the `StatusBadge` component.
+2. Define a status-to-style mapping.
+3. Add a fallback for unknown statuses.
+4. Create a dedicated CSS file.
+5. Build a small demo page to verify all badge variants.
+6. Test with both valid and invalid status values.
+
+Deliver a clean, reusable implementation that could be confidently used across multiple pages in the application.
