@@ -1,0 +1,45 @@
+.status-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+/* Pending */
+.status-badge--pending {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+/* In Progress */
+.status-badge--in-progress {
+  background-color: #dbeafe;
+  color: #1e40af;
+}
+
+/* Completed */
+.status-badge--completed {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+/* Failed */
+.status-badge--failed {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+/* On Hold */
+.status-badge--on-hold {
+  background-color: #e5e7eb;
+  color: #374151;
+}
+
+/* Fallback */
+.status-badge--default {
+  background-color: #f3f4f6;
+  color: #4b5563;
+}
